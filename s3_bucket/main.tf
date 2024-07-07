@@ -5,12 +5,10 @@ provider "aws" {
 resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
 
-  # Enable versioning
   versioning {
-    enabled = var.versioning
+    enabled = var.enable_versioning
   }
 
-  # Enable server-side encryption by default
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
@@ -18,9 +16,6 @@ resource "aws_s3_bucket" "this" {
       }
     }
   }
-
-  # Configure bucket policy
-  policy = var.policy
 
   tags = var.tags
 }

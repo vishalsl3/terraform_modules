@@ -1,7 +1,7 @@
 variable "region" {
-  description = "The AWS region to create the S3 bucket in."
+  description = "The AWS region where the bucket will be created."
   type        = string
-  default     = "us-east-1"
+  default     = "eu-central-1"
 }
 
 variable "bucket_name" {
@@ -9,22 +9,16 @@ variable "bucket_name" {
   type        = string
 }
 
-variable "versioning" {
+variable "enable_versioning" {
   description = "Enable versioning for the S3 bucket."
   type        = bool
   default     = false
 }
 
 variable "sse_algorithm" {
-  description = "The server-side encryption algorithm to use (e.g., AES256, aws:kms)."
+  description = "The server-side encryption algorithm to use. Valid values are AES256 and aws:kms."
   type        = string
   default     = "AES256"
-}
-
-variable "policy" {
-  description = "The JSON policy for the S3 bucket."
-  type        = string
-  default     = ""
 }
 
 variable "tags" {

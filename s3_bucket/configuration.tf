@@ -1,2 +1,12 @@
-# This file is intentionally left empty for now.
-# You can add additional provider configurations or settings if needed.
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.region
+}
